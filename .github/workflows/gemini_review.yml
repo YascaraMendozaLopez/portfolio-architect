@@ -1,4 +1,4 @@
-name: Gemini PR Reviewer
+name: Gemini PR Reviewer (Astro Optimized)
 
 on:
   pull_request:
@@ -14,10 +14,40 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get Changed Files
+        id: changed-files
+        uses: tj-actions/changed-files@v44
+        with:
+          files_ignore: |
+            pnpm-lock.yaml
+            package-lock.json
+            yarn.lock
+            node_modules/**
+            .astro/**
+            dist/**
+            public/**
+            *.md
+            .gitignore
+            .prettierrc
+            *.png
+            *.jpg
+            *.svg
 
       - name: Gemini Code Review
-        uses: google-gemini/pro-code-review-action@v1
+        uses: google-gemini/pro-code-review-action@v1 
+        if: steps.changed-files.outputs.any_changed == 'true'
         with:
           gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
           model: "gemini-1.5-flash"
-          system_instruction: "Eres un revisor de código experto. Sé conciso y enfócate en errores lógicos y seguridad, ademas de asegurar entrega de codigo limpio y escalable."
+          included_files: ${{ steps.changed-files.outputs.all_changed_files }}
+          system_instruction: |
+            Eres un experto en desarrollo web con Astro, Tailwind CSS y TypeScript.
+            Tu tarea es revisar Pull Requests para el proyecto "portfolio-architect".
+            - Sé conciso y directo.
+            - Prioriza errores de lógica, accesibilidad y rendimiento en Astro.
+            - Si ves clases de Tailwind que podrían optimizarse, menciónalo.
+            - Ignora cambios que sean puramente estéticos a menos que rompan algo.
+            - Responde siempre en español.
