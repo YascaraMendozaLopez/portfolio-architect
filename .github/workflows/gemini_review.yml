@@ -1,0 +1,23 @@
+name: Gemini PR Reviewer
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Gemini Code Review
+        uses: google-gemini/pro-code-review-action@v1
+        with:
+          gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
+          model: "gemini-1.5-flash"
+          system_instruction: "Eres un revisor de código experto. Sé conciso y enfócate en errores lógicos y seguridad, ademas de asegurar entrega de codigo limpio y escalable."
