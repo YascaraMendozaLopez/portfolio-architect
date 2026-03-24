@@ -14,40 +14,21 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Get Changed Files
-        id: changed-files
-        uses: tj-actions/changed-files@v44
+      - name: Gemini Review Bot
+        uses: Nasubikun/ai-reviewer@v1.0.6
         with:
-          files_ignore: |
-            pnpm-lock.yaml
-            package-lock.json
-            yarn.lock
-            node_modules/**
-            .astro/**
-            dist/**
-            public/**
-            *.md
-            .gitignore
-            .prettierrc
-            *.png
-            *.jpg
-            *.svg
-
-      - name: Gemini Code Review
-        uses: fynnfluegge/gemini-python-pr-reviewer@v1.1.0
-        if: steps.changed-files.outputs.any_changed == 'true'
-        with:
-          gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
-          model: "gemini-1.5-flash"
-          chosen_files: ${{ steps.changed-files.outputs.all_changed_files }}
-          system_instruction: |
-            Eres un experto en desarrollo web con Astro, Tailwind CSS (v4) y TypeScript.
-            Tu tarea es revisar Pull Requests para el proyecto "portfolio-architect".
-            - Sé conciso y directo.
-            - Prioriza errores de lógica, accesibilidad y rendimiento en Astro.
-            - Si ves clases de Tailwind que podrían optimizarse, menciónalo.
-            - Ignora cambios que sean puramente estéticos a menos que rompan algo.
-            - Responde siempre en español.
+          # Tu API Key guardada en Secrets
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          
+          # Token automático de GitHub (no necesitas crearlo, ya existe)
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+          # Usamos la versión estable de Flash
+          MODEL_CODE: "gemini-1.5-flash"
+          
+          # Idioma de los comentarios
+          LANGUAGE: "Spanish"
+          
+          # Patrones a excluir (aquí ignoramos lo de Astro y pnpm)
+          EXCLUDE_PATHS: "pnpm-lock.yaml,package-lock.json,node_modules/**,.astro/**,dist/**,public/**,*.md,*.png,*.jpg,*.svg"
