@@ -37,14 +37,14 @@ jobs:
             *.svg
 
       - name: Gemini Code Review
-        uses: google-gemini/pro-code-review-action@v1 
+        uses: fynnfluegge/gemini-python-pr-reviewer@v1.1.0
         if: steps.changed-files.outputs.any_changed == 'true'
         with:
           gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
           model: "gemini-1.5-flash"
-          included_files: ${{ steps.changed-files.outputs.all_changed_files }}
+          chosen_files: ${{ steps.changed-files.outputs.all_changed_files }}
           system_instruction: |
-            Eres un experto en desarrollo web con Astro, Tailwind CSS y TypeScript.
+            Eres un experto en desarrollo web con Astro, Tailwind CSS (v4) y TypeScript.
             Tu tarea es revisar Pull Requests para el proyecto "portfolio-architect".
             - Sé conciso y directo.
             - Prioriza errores de lógica, accesibilidad y rendimiento en Astro.
