@@ -1,1 +1,65 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../assets/fonts/Urbanist.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("../assets/fonts/Nunito.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@theme {
+  --color-primary-900: #031210;
+  --color-primary-800: #051F20;
+  --color-primary-500: #0B2B26;
+  --color-primary-400: #163832;
+  --color-primary-300: #235347;
+  --color-primary-100: #8EB69B;
+  --color-primary-50: #DAF1DD;
+
+  --color-secondary: #F5F0E8;
+
+  --color-accent-900: #2B2213;
+  --color-accent-800: #4E4027;
+  --color-accent-700: #735A2A;
+  --color-accent-500: #C9A96E;
+
+  --font-urbanist: "Urbanist", sans-serif;
+  --font-nunito: "Nunito", system-ui;
+}
+
+@layer base {
+  body {
+    @apply bg-secondary antialiased scroll-smooth font-nunito
+  }
+}
+
+.swiper-pagination-bullet {
+  @apply !bg-white/30 !opacity-100 !rounded-none !w-8 !h-[2px] transition-all duration-300;
+  border: none !important;
+}
+
+.swiper-pagination-bullet-active {
+  @apply !bg-accent-500 !w-14 !h-[3px];
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.swiper-pagination {
+  @apply z-30 !bottom-10;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-accent-500;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-500;
+}
