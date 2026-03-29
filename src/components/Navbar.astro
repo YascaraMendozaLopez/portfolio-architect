@@ -1,0 +1,49 @@
+---
+import { LogoIcon } from "../assets/icons/LogoIcon.tsx";
+
+const { pathname } = Astro.url;
+---
+
+<nav class="sticky top-0 z-50 flex items-center justify-between py-4 px-8 bg-linear-to-l from-primary-400 to-primary-900 px-24">
+  <a href="/" class="flex items-center gap-4">
+    <LogoIcon size="size-20" />
+  </a>
+
+  <div class=" w-[927px] h-[38px] top-[40px] rotate-0 opacity-100 gap-12 flex items-center justify-end font-nunito text-accent-500 font-medium text-[12px] leading-none tracking-normal uppercase gap-[48px]">
+    
+    <a href="/" class={`width-[56px] height-[16px] pb-1 transition-all hover:scale-110 ${pathname === "/" ? "border-b-2 border-dotted border-accent-500 italic" : ""}`}>
+      Inicio
+    </a>
+    
+    <a href="/#projects" class={`width-[56px] height-[16px] pb-1 transition-all hover:scale-110  ${pathname === "/#projects" ? "border-b-2 border-dotted border-accent-500 italic" : ""}`}>
+      Proyectos
+    </a>
+    
+    <a href="/#about" class={`width-[56px] height-[16px] pb-1 transition-all hover:scale-110 ${pathname === "/#about" ? "border-b-2 border-dotted border-accent-500 italic" : ""}`}>
+      Sobre mi
+    </a>
+    
+    <a href="/#services" class={`width-[56px] height-[16px] pb-1 transition-all hover:scale-110 ${pathname === "/#services" ? "border-b-2 border-dotted border-accent-500 italic" : ""}`}>
+      Servicios
+    </a>
+    
+    <a href="/#students" class={`width-[56px] height-[16px] pb-1 transition-all hover:scale-110 ${pathname === "/#students" ? "border-b-2 border-dotted border-accent-500 italic" : ""}`}>
+      Estudiantes
+    </a>
+    
+    <a href="/#renders" class={`width-[56px] height-[16px] pb-1 transition-all hover:scale-110 ${pathname === "/#renders" ? "border-b-2 border-dotted border-accent-500 italic" : ""}`}>
+      Renders
+    </a>
+    
+    <a href="/#contact" class={`width-[56px] height-[16px] pb-1 transition-all hover:scale-110 ${pathname === "/#contact" ? "border-b-2 border-dotted border-accent-500 italic" : ""}`}>
+      Contacto
+    </a>
+  
+    <a 
+      href="#contact"
+      class="flex items-center justify-center w-[161px] h-[38px] border border-accent-500 rounded-[5px] py-2 px-4 gap-2 opacity-100 rotate-0 font-nunito text-[12px] uppercase transition-all hover:bg-accent-500 hover:text-primary-900"
+    >
+      Consulta Gratuita
+    </a>
+  </div>
+</nav>
