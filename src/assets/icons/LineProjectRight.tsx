@@ -1,22 +1,28 @@
 import type { IconProps } from "../../types";
 
-export const HeroLineRight = ({ size ="size-50", primaryColor = "var(--color-accent-500)" }: IconProps) => {
+export const LineProjectRight = ({ size ="size-20", primaryColor = "var(--color-primary-300)" }: IconProps) => {
   return (
-     <svg
-     className={size}      viewBox="0 0 56 201"
+ <svg
+      className={size}
+      viewBox="0 0 75 64"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g filter="url(#filter0_d_134_1125)">
-        <path d="M51.5 0v193H4v-10.5h37V0h10.5z" fill={primaryColor}/>
+      <g filter="url(#filter0_d_134_214)" fill={primaryColor}>
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M66.61 0v56H56V0h10.61z"
+        />
+        <path d="M56 56H0V45h56v11z" />
       </g>
       <defs>
         <filter
-          id="filter0_d_134_1125"
+          id="filter0_d_134_214"
           x={0}
           y={0}
-          width={55.5}
-          height={201}
+          width={74.6106}
+          height={64}
           filterUnits="userSpaceOnUse"
           colorInterpolationFilters="sRGB"
         >
@@ -26,17 +32,17 @@ export const HeroLineRight = ({ size ="size-50", primaryColor = "var(--color-acc
             values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
             result="hardAlpha"
           />
-          <feOffset dy={4} />
+          <feOffset dx={4} dy={4} />
           <feGaussianBlur stdDeviation={2} />
           <feComposite in2="hardAlpha" operator="out" />
           <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
           <feBlend
             in2="BackgroundImageFix"
-            result="effect1_dropShadow_134_1125"
+            result="effect1_dropShadow_134_214"
           />
           <feBlend
             in="SourceGraphic"
-            in2="effect1_dropShadow_134_1125"
+            in2="effect1_dropShadow_134_214"
             result="shape"
           />
         </filter>
