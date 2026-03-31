@@ -3,7 +3,8 @@ import type { IconProps } from "../../types";
 export const LineProjectLeft = ({ size ="size-100", primaryColor = "var(--color-primary-300)" }: IconProps) => {
   return (
  <svg
-      className={size}
+      width={19}
+      height={419}
       viewBox="0 0 19 419"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
