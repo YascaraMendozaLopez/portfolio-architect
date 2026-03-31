@@ -2,7 +2,7 @@ import type { IconProps } from "../../types";
 
 export const HeroLineLeft = ({ primaryColor = "var(--color-primary-300)" }: IconProps) => {
   return (
-      <svg
+     <svg
       width={90}
       height={617}
       viewBox="0 0 90 617"
