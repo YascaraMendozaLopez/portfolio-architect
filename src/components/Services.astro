@@ -1,0 +1,88 @@
+---
+import { RightArrowWithCircleIcon } from "../assets/icons/RightArrowWithCircleIcon";
+import StairsGraphicIcon from "../../public/images/StairsGraphicIcon.svg";
+import ServicesLayoutImage from '../../public/images/ServicesLayoutImage.svg';
+import ServiceCard from "./ServiceCard.astro";
+
+const services = [
+  {
+    number: "01",
+    title: "Diseño de Planos",
+    description: "Transformo tu idea en planos claros y aprobables."
+  },
+  {
+    number: "02",
+    title: "Plano de relevamiento",
+    description: "Regularizo la documentación de tu propiedad ante las autoridades. Sin papeleo complicado."
+  },
+  {
+    number: "03",
+    title: "Plano de lote",
+    description: "Mido y dibujo tu terreno con precisión. Lo que necesite para construir, vender, subdividir o tramitar permisos municipales."
+  },
+  {
+    number: "04",
+    title: "Avalúo de propiedades?",
+    description: "Proyectos residenciales y comerciales desde concepto hasta obra."
+  }
+];
+---
+
+<section class="bg-[#F4EDE4] font-sans min-h-[315px] md:min-h-[1100px]">
+  
+  <div class="bg-[#86A789] p-10 md:p-20 relative">
+
+    <img src={ServicesLayoutImage.src} class="absolute w-[100%] h-[800px] scale-x-115 left-1/2 -translate-x-1/2 top-3/4" />
+
+    <img 
+      src={StairsGraphicIcon.src} 
+      class="absolute right-10 bottom-5 w-auto opacity-25" 
+    />
+
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+      <div class="space-y-2">
+        <h2 class="text-5xl md:text-6xl text-[#102A26] font-light leading-tight">
+          ¿Listo para empezar<br/>
+          tu <span class="font-bold italic">proyecto?</span>
+        </h2>
+        <p class="text-[#102A26]/80 text-lg">Primera consulta sin costo · Potosí y proyectos nacionales</p>
+      </div>
+      
+      <button class="
+        flex items-center justify-center gap-[10px] 
+        w-[297px] h-[56px] font-nunito 
+        pt-[15px] pb-[16px] px-[32px] 
+        bg-[var(--primary-400,#163832)] 
+        text-white font-bold
+        rounded-[10px] 
+        shadow-[2px_2px_2px_0px_#0B2B2666] 
+        rotate-0 opacity-100 
+        transition-all hover:opacity-90
+      ">
+        Cuéntame tu proyecto
+        <RightArrowWithCircleIcon primaryColor={"#FFFFFF"} />
+      </button>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 py-20 relative">
+    
+    <div class="mb-16">
+      <span class="text-[#8B7355] font-bold text-sm uppercase tracking-widest">Lo que ofrezco</span>
+      <h3 class="text-5xl md:text-6xl text-[#102A26] mt-2">
+        Servicios de <span class="font-bold text-[#8B7355]">arquitectura</span>
+      </h3>
+    </div>
+
+    <div class="grid md:grid-cols-2 justify-items-center align-center gap-10 md:gap-20 px-10 pb-10">
+      {services.map((service) => (
+        <ServiceCard 
+          serviceNumber={service.number}
+          title={service.title}
+          description={service.description}
+        />
+      ))}
+    </div>
+
+  </div>
+</section>

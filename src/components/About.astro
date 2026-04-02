@@ -7,40 +7,41 @@ import ProfilePhotoIcon from '../../public/images/ProfilePhotoIcon.svg';
 import LogoTransparent from '../../public/images/LogoTransparent.svg';
 ---
 
-<section class="min-h-screen bg-linear-to-b from-primary-400 to-primary-900 text-white p-8 md:p-16 flex items-center justify-center font-sans overflow-hidden">
-  <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 relative">
+<section class="min-h-screen w-full bg-linear-to-b from-primary-400 to-primary-900 text-white flex items-center justify-center font-nunito overflow-hidden py-20">
+  <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12">
     
-    <div class="relative flex flex-col justify-end 
-            bg-[linear-gradient(to_right,#ffffff4d_1px,transparent_1px),linear-gradient(to_bottom,#ffffff4d_1px,transparent_1px)] 
-            bg-[size:calc(100%/7)_calc(100%/9)]">
-      <div class="absolute top-0 left-0 z-20">
-        <span class="text-[#c19a5b] uppercase tracking-[0.2em] text-xs font-semibold">Arquitecto</span>
-        <h2 class="text-5xl md:text-6xl font-light leading-tight mt-1 text-white">
-          Jesús <span class="font-bold italic text-[#c19a5b]">Mendoza</span>
+    <div class="relative w-full h-auto flex flex-col justify-end">
+      <div class="absolute inset-0 opacity-15 pointer-events-none
+                  bg-[linear-gradient(to_right,var(--color-primary-100)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-primary-100)_1px,transparent_1px)] 
+                  bg-[size:calc(100%/7-0.1px)_calc(100%/9-0.1px)]">
+      </div>
+      <div class="relative">
+        <span class="text-accent-500 uppercase tracking-[0.2em] font-nunito">Arquitecto</span>
+        <h2 class="text-[56px] font-urbanist md:text-6xl leading-tight mt-1 text-white">
+          Jesús <span class="font-bold italic text-accent-500">Mendoza</span>
         </h2>
       </div>
 
       <div class="relative mt-32 flex justify-center lg:justify-start w-fit">
   
-  <div class="absolute inset-0 z-0 pointer-events-none flex items-center justify-center">
-    
+  <div class="absolute inset-0 z-0 pointer-events-none flex items-end justify-end">
     <div> 
-      <img src={LogoTransparent.src} class="w-full h-auto scale-70" />
+      <img src={LogoTransparent.src} class="w-full h-auto translate-x-3 mb-[15%]" />
     </div>
   </div>
 
   <div class="relative z-10 grayscale border-b border-white/10 overflow-hidden">
     <img 
       src={ProfilePhotoIcon.src} 
-      alt="Jesús Mendoza" 
-      class="w-full max-w-sm md:max-w-md object-cover block"
+      alt="Profile Photo"
+      class="translate-x-12 scale-110 [mask-image:radial-gradient(circle,black_50%,transparent_70%)]"
     />
   </div>
 
   <img 
     src={WallZIcon.src} 
-    class="absolute -left-10 bottom-0 w-[82px] h-auto z-20 opacity-100" 
-    alt="" 
+    class="absolute left-12 -bottom-18 w-[82px] h-auto z-20 opacity-100" 
+    alt="wall-z" 
   />
 
 </div>
@@ -55,44 +56,45 @@ import LogoTransparent from '../../public/images/LogoTransparent.svg';
           remodelaciones y asesoramiento arquitectónico en la ciudad de Potosí.
         </p>
 
-        <div class="border-t border-[#c19a5b]/30 pt-6 grid grid-cols-3 gap-4 text-center lg:text-left">
+        <div class="border-t border-accent-500 pt-6 grid grid-cols-3 gap-4 text-center lg:text-left">
           <div>
-            <p class="text-[10px] uppercase tracking-widest text-[#c19a5b] mb-1">Formación</p>
+            <p class="text-[10px] uppercase tracking-widest text-accent-500 mb-1">Formación</p>
             <p class="text-sm font-medium">U.A.T.F.</p>
           </div>
           <div>
-            <p class="text-[10px] uppercase tracking-widest text-[#c19a5b] mb-1">Proyectos</p>
+            <p class="text-[10px] uppercase tracking-widest text-accent-500 mb-1">Proyectos</p>
             <p class="text-sm font-medium">+10 obras</p>
           </div>
           <div>
-            <p class="text-[10px] uppercase tracking-widest text-[#c19a5b] mb-1">Ubicación</p>
+            <p class="text-[10px] uppercase tracking-widest text-accent-500 mb-1">Ubicación</p>
             <p class="text-sm font-medium">Potosí, Bolivia</p>
           </div>
         </div>
 
-        <blockquote class="italic text-gray-400 text-sm border-l-2 border-[#c19a5b] pl-4 py-2 mt-8">
-          "Cada espacio que diseño parte de una pregunta simple: ¿Cómo quiere vivir esta persona?"
+        <blockquote class="italic text-[16px] border-l-2 border-accent-500 pl-4 py-2 mt-8">
+          "Cada espacio que diseño parte de una pregunta simple: 
+          <span class="text-accent-500">¿Cómo quiere vivir esta persona?"</span>
         </blockquote>
-        <img src={WallLIcon.src} class="w-[351.61px] h-[56px] absolute right-0    z-20" alt="" />
+        <img src={WallLIcon.src} class="w-[351.61px] h-[56px] absolute -right-5 z-20" alt="" />
       </div>
     </div>
 
-    <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 relative">
-      
+    <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 relative justify-items-center">
+    
       <div class="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
         <img src={WallWithDoorIcon.src} class="h-auto w-auto drop-shadow-2xl" alt="" />
       </div>
 
-      <div class="group border border-white/10 bg-white/[0.02] p-12 flex flex-col items-center justify-center relative overflow-hidden">
+      <div class="border border-white/10 p-12 flex flex-col items-center justify-center relative overflow-hidden w-[400px] h-[200px] shadow-[2px_2px_4px_0px_var(--primary-50)] shadow-[inset_1px_1px_1px_0px_#FFFFFF40]">
         <span class="text-7xl font-light text-white mb-2">3+</span>
         <span class="uppercase tracking-[0.3em] text-[10px] text-[#c19a5b]">Años de experiencia</span>
       </div>
 
-      <div class="group border border-white/10 bg-white/[0.02] p-12 flex flex-col items-center justify-center relative overflow-hidden">
+      <div class="border border-white/10 p-12 flex flex-col items-center justify-center relative overflow-hidden w-[400px] h-[200px] shadow-[2px_2px_4px_0px_var(--primary-50)] shadow-[inset_1px_1px_1px_0px_#FFFFFF40]">
         <span class="text-7xl font-light text-white mb-2">10+</span>
         <span class="uppercase tracking-[0.3em] text-[10px] text-[#c19a5b]">Proyectos Realizados</span>
       </div>
-    <img src={WallCornerIcon.src} class="absolute -bottom-17 -right-12 z-20" alt="" />
+    <img src={WallCornerIcon.src} class="absolute -bottom-17 right-0 z-20" alt="" />
     </div>
   </div>
 </section>
