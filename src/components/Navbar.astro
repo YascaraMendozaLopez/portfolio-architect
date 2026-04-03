@@ -1,6 +1,5 @@
 ---
 import { LogoIcon } from "../assets/icons/LogoIcon.tsx";
-const { pathname } = Astro.url;
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -58,7 +57,7 @@ const navLinks = [
       
       const isActive = (href === currentPath + currentHash) || 
                        (href === "/" && currentPath === "/" && currentHash === "") ||
-                       (href === currentHash); // Para el caso de solo #contact
+                       (href === currentHash);
 
       if (isActive) {
         link.classList.add('border-b-2', 'border-dotted', 'border-accent-500', 'italic');
