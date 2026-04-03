@@ -12,7 +12,7 @@ const navLinks = [
 ];
 ---
 
-<nav class="fixed top-0 left-0 w-full z-50 flex items-center justify-between py-4 px-8 bg-linear-to-l from-primary-400 to-primary-900">
+<nav class="fixed top-0 left-0 w-full z-50 flex items-center justify-between py-4 px-8 bg-linear-to-l from-primary-400 to-primary-900 lg:px-24">
   <a href="/" class="flex items-center gap-4 z-50">
     <LogoIcon size="size-16 lg:size-20" />
   </a>
@@ -23,7 +23,11 @@ const navLinks = [
     </svg>
   </button>
 
-  <div id="menu-items" class="fixed inset-0 bg-primary-900 flex flex-col items-center justify-center gap-8 translate-x-full transition-transform duration-300 ease-in-out z-40 lg:static lg:flex-row lg:translate-x-0 lg:bg-transparent lg:w-auto lg:h-auto lg:gap-8 lg:p-0">
+  <div 
+    id="menu-items" 
+    class="fixed inset-y-0 right-0 w-full bg-primary-900 flex flex-col items-center justify-center gap-8 translate-x-full invisible opacity-0 pointer-events-none transition-all duration-300 ease-in-out z-40 
+           lg:static lg:flex lg:flex-row lg:translate-x-0 lg:visible lg:opacity-100 lg:pointer-events-auto lg:bg-transparent lg:w-auto lg:h-auto lg:gap-8 lg:p-0"
+  >
     <div id="nav-links-container" class="flex flex-col lg:flex-row items-center gap-8 lg:gap-10 font-nunito text-accent-500 font-medium text-[14px] lg:text-[12px] uppercase">
       {navLinks.map(link => (
         <a 
@@ -47,14 +51,29 @@ const navLinks = [
 </nav>
 
 <script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const menuItems = document.getElementById('menu-items');
+  const menuIcon = document.getElementById('menu-icon');
+  const links = document.querySelectorAll('[data-nav-link]');
+
+  const toggleMenu = (forceClose = false) => {
+    const isOpening = forceClose ? false : menuItems?.classList.contains('translate-x-full');
+    
+    if (isOpening) {
+      menuItems?.classList.remove('translate-x-full', 'invisible', 'opacity-0', 'pointer-events-none');
+      menuIcon?.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+    } else {
+      menuItems?.classList.add('translate-x-full', 'invisible', 'opacity-0', 'pointer-events-none');
+      menuIcon?.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+    }
+  };
+
   const updateActiveLink = () => {
     const currentPath = window.location.pathname;
     const currentHash = window.location.hash;
-    const links = document.querySelectorAll('[data-nav-link]');
 
     links.forEach(link => {
       const href = link.getAttribute('href');
-      
       const isActive = (href === currentPath + currentHash) || 
                        (href === "/" && currentPath === "/" && currentHash === "") ||
                        (href === currentHash);
@@ -67,24 +86,13 @@ const navLinks = [
     });
   };
 
-  updateActiveLink();
+  menuToggle?.addEventListener('click', () => toggleMenu());
+  
+  links.forEach(link => {
+    link.addEventListener('click', () => toggleMenu(true));
+  });
 
   window.addEventListener('hashchange', updateActiveLink);
-
-  const menuToggle = document.getElementById('menu-toggle');
-  const menuItems = document.getElementById('menu-items');
-  const menuIcon = document.getElementById('menu-icon');
-
-  menuToggle?.addEventListener('click', () => {
-    menuItems?.classList.toggle('translate-x-full');
-    const isOpen = !menuItems?.classList.contains('translate-x-full');
-    menuIcon?.setAttribute('d', isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16m-7 6h7');
-  });
-
-  menuItems?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      menuItems?.classList.add('translate-x-full');
-      menuIcon?.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
-    });
-  });
+  window.addEventListener('load', updateActiveLink);
+  updateActiveLink();
 </script>
