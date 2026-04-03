@@ -56,7 +56,6 @@ const navLinks = [
   const menuIcon = document.getElementById('menu-icon');
   const links = document.querySelectorAll('[data-nav-link]');
 
-  // Función para abrir/cerrar menú
   const toggleMenu = (forceClose = false) => {
     const isOpening = forceClose ? false : menuItems?.classList.contains('translate-x-full');
     
@@ -69,7 +68,6 @@ const navLinks = [
     }
   };
 
-  // Función para resaltar link activo
   const updateActiveLink = () => {
     const currentPath = window.location.pathname;
     const currentHash = window.location.hash;
@@ -88,7 +86,6 @@ const navLinks = [
     });
   };
 
-  // Listeners
   menuToggle?.addEventListener('click', () => toggleMenu());
   
   links.forEach(link => {
