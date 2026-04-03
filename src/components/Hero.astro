@@ -4,105 +4,158 @@ import { HeroLineRight } from "../assets/icons/LineHeroRight";
 ---
 
 <section
-  class="relative h-screen overflow-hidden lg:overflow-visible
+  class="relative flex min-h-screen items-center
+  overflow-hidden lg:overflow-visible
   bg-[radial-gradient(circle_at_center,_var(--color-primary-500)_0%,_var(--color-primary-800)_70%)]
   shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
 >
   <div
     class="absolute inset-0 pointer-events-none
-    bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)]
-    bg-[size:24px_24px]
-    sm:bg-[size:32px_32px]
-    md:bg-[size:43.714285px_30.5px]"
+    bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)]
+    bg-[size:20px_20px]
+    sm:bg-[size:28px_28px]
+    md:bg-[size:40px_40px]"
   >
   </div>
 
   <div
-    class="relative z-10 flex h-full items-center
-    flex-col justify-center px-6 ml-0 text-center
-    lg:flex-row lg:justify-end md:px-24 lg:ml-12.5"
+    class="relative z-10 w-full
+    flex flex-col lg:flex-row
+    justify-between items-center
+    px-[clamp(1.5rem,8vw,8rem)]
+    lg:px-[clamp(1.5rem,30vw,14rem)]
+    gap-12 lg:gap-0"
   >
-    <img
-      src="/images/logo.svg"
-      alt="Logo"
-      class="block lg:hidden w-[50%] mx-auto mb-6 pointer-events-none select-none"
-    />
-
-    <div
-      class="w-full max-w-full lg:max-w-[55%]
-      text-primary-50
-      text-center
-      lg:text-right lg:mt-[45px] lg:mr-[10%]"
-    >
-      <h1
-        class="font-urbanist font-light leading-tight tracking-wide
-        text-[clamp(28px,8vw,42px)]
-        md:text-[clamp(33px,5vw,90px)]"
+    <div class="hidden lg:block w-full relative">
+      <img
+        src="/images/hero-image.svg"
+        alt="Arquitectura"
+        class="w-full max-w-[600px] pointer-events-none select-none"
+      />
+      <div
+        class="absolute
+        top-1/2
+        right-[0%]
+        -translate-y-1/2
+        max-w-[clamp(820px,30vw,780px)]
+        text-right
+        text-primary-50
+        flex flex-col gap-8
+        z-20"
       >
-        Espacios que
-        <span class="italic text-accent-500">trascienden</span>
-      </h1>
-
-      <p
-        class="font-nunito mt-3 text-[16px] md:mt-1 md:text-[24px] text-primary-50"
-      >
-        Diseño residencial y comercial
-      </p>
-
-      <a
-        href="https://wa.me/59171587412"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="mt-6 md:mt-10
-        mb-4 md:mb-4
-        inline-flex items-center justify-center gap-3
-        w-full sm:w-fit
-        px-2 py-3
-        sm:px-6 sm:py-3
-        md:px-5 md:py-3
-        text-[14px]
-        sm:text-[15px]
-        md:text-[clamp(1.1rem,1.2vw,1.3rem)]
-        font-nunito font-semibold uppercase
-        bg-accent-500 text-accent-900
-        rounded-2xl
-        border-2 border-accent-700
-        shadow
-        transition-all duration-300 ease-out
-        hover:bg-primary-50
-        hover:shadow-[2px_8px_2px_rgba(0,0,0,0.5)]
-        hover:scale-105
-        active:scale-95"
-      >
-        Solicitar consulta gratuita
-      </a>
-
-      <p
-        class="font-nunito italic text-primary-100
-        text-[16px] mt-6
-        md:text-[24px] md:mt-14"
-      >
-        Arq. Jesús Mendoza
-      </p>
+        <h1
+          class="font-urbanist font-light leading-[0.95] tracking-tight
+          text-[clamp(40px,6vw,85px)]
+          md:text-[clamp(55px,5.5vw,110px)]
+          lg:text-[clamp(70px,3.8vw,105px)]"
+        >
+          <span class="block"> Espacios que </span>
+          <span
+            class="block italic text-accent-500 mt-[clamp(10px,1.5vw,20px)]"
+          >
+            trascienden
+          </span>
+        </h1>
+        <p
+          class="font-nunito
+          text-[clamp(16px,2.5vw,20px)]
+          md:text-[clamp(18px,2vw,24px)]
+          lg:text-[clamp(18px,1.6vw,26px)]
+          text-primary-50/90"
+        >
+          Diseño residencial y comercial
+        </p>
+        <a
+          class="inline-flex items-center justify-center
+          w-full sm:w-fit
+          px-6 py-4
+          text-[clamp(13px,2vw,16px)]
+          font-nunito font-semibold uppercase
+          bg-accent-500 text-accent-900
+          rounded-2xl border-2 border-accent-700
+          transition-all duration-300 ease-out
+          hover:bg-primary-50
+          hover:shadow-[0_10px_30px_rgba(0,0,0,0.4)]
+          hover:-translate-y-1
+          active:scale-95
+          self-start lg:self-end"
+        >
+          Solicitar consulta gratuita
+        </a>
+        <p
+          class="hidden lg:block
+          font-nunito italic text-primary-100
+          text-[clamp(20px,1.8vw,28px)]
+          tracking-wide"
+        >
+          Arq. Jesús Mendoza
+        </p>
+      </div>
     </div>
+    <div class="flex flex-col items-start text-center gap-5 lg:hidden w-full">
+      <div
+        class="flex flex-col gap-5 px-[clamp(1rem,6vw,2rem)] ml-[4%] mt-[50%]"
+      >
+        <h1
+          class="text-primary-50 font-urbanist font-light leading-[1] tracking-tight
+     text-[clamp(40px,12vw,64px)]"
+        >
+          <span class="block">Espacios que</span>
+          <span class="block italic text-accent-500 mt-2"> trascienden </span>
+        </h1>
 
-    <img
-      src="/images/hero-image.svg"
-      alt="Arquitectura"
-      class="hidden lg:block absolute left-[11%] top-[13%]
-      w-[48%] h-auto pointer-events-none select-none"
-    />
+        <p
+          class="font-nunito
+      text-[clamp(14px,4vw,18px)]
+      text-primary-50/90"
+        >
+          Diseño residencial y comercial
+        </p>
+
+        <a
+          href="https://wa.me/59171587412"
+          target="_blank"
+          class="inline-flex items-center justify-center
+      w-full
+      px-6 py-3
+      text-[clamp(12px,3.5vw,14px)]
+      font-nunito font-semibold uppercase
+      bg-accent-500 text-accent-900
+      rounded-lg border-2 border-accent-700
+      transition-all duration-300
+      active:scale-95
+      mt-[10%]"
+        >
+          Solicitar consulta gratuita
+        </a>
+      </div>
+
+      <div class="relative w-full">
+        <img
+          src="/images/hero-image.svg"
+          alt="Arquitectura"
+          class="w-[110%] max-w-none ml-[-5%]"
+        />
+
+        <p
+          class="absolute bottom-[15%] left-[54%]
+    font-nunito italic text-primary-100
+    text-[clamp(14px,4vw,18px)]"
+        >
+          Arq. Jesús Mendoza
+        </p>
+      </div>
+    </div>
   </div>
-
   <div
-    class="hidden lg:block absolute left-[4.65%] bottom-[-180px]
+    class="hidden lg:block absolute left-[5%] bottom-[-160px]
     w-24 pointer-events-none z-10"
   >
     <HeroLineLeft />
   </div>
-
   <div
-    class="hidden lg:block absolute right-[6%] bottom-[6%] w-24 pointer-events-none"
+    class="hidden lg:block absolute right-[7%] bottom-[6%]
+    w-24 pointer-events-none"
   >
     <HeroLineRight />
   </div>
