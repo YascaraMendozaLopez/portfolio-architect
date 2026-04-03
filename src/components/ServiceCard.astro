@@ -1,23 +1,27 @@
 ---
 import { ArrowStudentServiceIcon } from "../assets/icons/ArrowStudentService";
 
-const { serviceNumber, title, description} = Astro.props;
+const { serviceNumber, title, description } = Astro.props;
 ---
 
-<div class="flex flex-col align-center font-nunito max-w-[400px] max-h-[165px]">
-  <div class="flex items-center justify-start gap-2">
-    <span class="text-[48px] w-[58pxd] h-[65px] text-primary-300">{serviceNumber}</span>
-    <h4 class="text-[24px] text-primary-300 min-w-[149px] h-[33px]">
+<div class="flex flex-col justify-start font-nunito w-full max-w-[450px] group">
+  <div class="flex items-center justify-start gap-4 mb-2">
+    <span class="text-[clamp(2.25rem,5vw,3rem)] font-light leading-none text-primary-300 opacity-80">
+      {serviceNumber}
+    </span>
+    
+    <h4 class="text-[clamp(1.125rem,3vw,1.5rem)] text-primary-300 font-bold leading-tight">
       {title}
     </h4>
   </div>
 
-  <div class="flex pl-6 gap-x-12 items-center">
-     <div class="w-[27px] h-[48px]">
-      <ArrowStudentServiceIcon size="size-15" />
+  <div class="flex pl-4 md:pl-6 gap-x-6 md:gap-x-10 items-start">
+    <div class="flex-shrink-0 pt-1 transition-transform group-hover:translate-x-1">
+      <ArrowStudentServiceIcon size="size-8 md:size-10" />
     </div>
-    <p class="text-primary-300 text-[18px]">
-       {description}
+    
+    <p class="text-primary-300 text-[clamp(0.95rem,2vw,1.125rem)] leading-relaxed opacity-90">
+      {description}
     </p>
   </div>
 </div>

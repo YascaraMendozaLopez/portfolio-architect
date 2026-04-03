@@ -7,94 +7,93 @@ import ProfilePhotoIcon from '../../public/images/ProfilePhotoIcon.svg';
 import LogoTransparent from '../../public/images/LogoTransparent.svg';
 ---
 
-<section id="about" class="min-h-screen w-full bg-linear-to-b from-primary-400 to-primary-900 text-white flex items-center justify-center font-nunito overflow-hidden py-20">
-  <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12">
+<section id="about" class="min-h-screen w-full bg-linear-to-b from-primary-400 to-primary-900 text-white flex items-center justify-center font-nunito overflow-hidden py-12 md:py-20">
+  <div class="max-w-6xl w-full px-6 md:px-0 grid grid-cols-1 lg:grid-cols-2 gap-12">
     
-    <div class="relative w-full h-auto flex flex-col justify-end">
+    <div class="relative w-full h-auto flex flex-col justify-end items-center lg:items-start">
       <div class="absolute inset-0 opacity-15 pointer-events-none
                   bg-[linear-gradient(to_right,var(--color-primary-100)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-primary-100)_1px,transparent_1px)] 
                   bg-[size:calc(100%/7-0.1px)_calc(100%/9-0.1px)]">
       </div>
-      <div class="relative">
+      
+      <div class="relative text-center lg:text-left z-20">
         <span class="text-accent-500 uppercase tracking-[0.2em] font-nunito">Arquitecto</span>
-        <h2 class="text-[56px] font-urbanist md:text-6xl leading-tight mt-1 text-white">
+        <h2 class="text-[clamp(2.5rem,8vw,56px)] font-urbanist leading-tight mt-1 text-white">
           Jesús <span class="font-bold italic text-accent-500">Mendoza</span>
         </h2>
       </div>
 
-      <div class="relative mt-32 flex justify-center lg:justify-start w-fit">
-  
-  <div class="absolute inset-0 z-0 pointer-events-none flex items-end justify-end">
-    <div> 
-      <img src={LogoTransparent.src} class="w-full h-auto translate-x-3 mb-[15%]" />
-    </div>
-  </div>
-
-  <div class="relative z-10 grayscale border-b border-white/10 overflow-hidden">
-    <img 
-      src={ProfilePhotoIcon.src} 
-      alt="Profile Photo"
-      class="translate-x-12 scale-110 [mask-image:radial-gradient(circle,black_50%,transparent_70%)]"
-    />
-  </div>
-
-  <img 
-    src={WallZIcon.src} 
-    class="absolute left-12 -bottom-18 w-[82px] h-auto z-20 opacity-100" 
-    alt="wall-z" 
-  />
-
-</div>
-    </div>
-
-    <div class="flex flex-col justify-center space-y-12">
-      <div class="space-y-6 relative">
-        <p class="font-nunito text-gray-300 leading-relaxed text-lg text-justify lg:text-left max-w-lg">
-          Arquitecto en Potosí egresado de la U.A.T.F. con más de 3 años de experiencia en diseño arquitectónico. 
-          He desarrollado más de 10 proyectos, principalmente viviendas y espacios personalizados, ofreciendo 
-          soluciones modernas, funcionales y adaptadas a cada cliente. Trabajo en el diseño de casas, 
-          remodelaciones y asesoramiento arquitectónico en la ciudad de Potosí.
-        </p>
-
-        <div class="border-t border-accent-500 pt-6 grid grid-cols-3 gap-4 text-center lg:text-left">
-          <div>
-            <p class="text-[10px] uppercase tracking-widest text-accent-500 mb-1">Formación</p>
-            <p class="text-sm font-medium">U.A.T.F.</p>
-          </div>
-          <div>
-            <p class="text-[10px] uppercase tracking-widest text-accent-500 mb-1">Proyectos</p>
-            <p class="text-sm font-medium">+10 obras</p>
-          </div>
-          <div>
-            <p class="text-[10px] uppercase tracking-widest text-accent-500 mb-1">Ubicación</p>
-            <p class="text-sm font-medium">Potosí, Bolivia</p>
+      <div class="relative mt-12 lg:mt-32 flex justify-center lg:justify-start w-fit">
+        <div class="absolute inset-0 z-0 pointer-events-none flex items-end justify-end">
+          <div> 
+            <img src={LogoTransparent.src} class="w-full h-auto translate-x-3 mb-[15%] opacity-40 lg:opacity-100" />
           </div>
         </div>
 
-        <blockquote class="italic text-[16px] border-l-2 border-accent-500 pl-4 py-2 mt-8">
-          "Cada espacio que diseño parte de una pregunta simple: 
-          <span class="text-accent-500">¿Cómo quiere vivir esta persona?"</span>
-        </blockquote>
-        <img src={WallLIcon.src} class="w-[351.61px] h-[56px] absolute -right-5 z-20" alt="" />
+        <div class="relative z-10 grayscale border-b border-white/10 overflow-hidden w-[260px] md:w-auto">
+          <img 
+            src={ProfilePhotoIcon.src} 
+            alt="Profile Photo"
+            class="md:translate-x-12 scale-110 [mask-image:radial-gradient(circle,black_50%,transparent_70%)]"
+          />
+        </div>
+
+        <img 
+          src={WallZIcon.src} 
+          class="hidden md:block absolute left-4 lg:left-12 -bottom-10 lg:-bottom-18 w-[60px] lg:w-[82px] h-auto z-20" 
+          alt="wall-z" 
+        />
       </div>
     </div>
 
-    <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 relative justify-items-center">
-    
-      <div class="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
+    <div class="flex flex-col justify-center space-y-8 lg:space-y-12 relative z-10">
+      <div class="space-y-6 relative">
+        <p class="font-nunito text-gray-300 leading-relaxed text-base lg:text-lg text-justify lg:text-left max-w-lg">
+          Arquitecto en Potosí egresado de la U.A.T.F. con más de 3 años de experiencia en diseño arquitectónico. 
+          He desarrollado más de 10 proyectos, principalmente viviendas y espacios personalizados.
+        </p>
+
+        <div class="border-t border-accent-500 pt-6 grid grid-cols-3 gap-2 md:gap-4 text-center lg:text-left">
+          <div>
+            <p class="text-[9px] lg:text-[10px] uppercase tracking-widest text-accent-500 mb-1">Formación</p>
+            <p class="text-xs lg:text-sm font-medium">U.A.T.F.</p>
+          </div>
+          <div>
+            <p class="text-[9px] lg:text-[10px] uppercase tracking-widest text-accent-500 mb-1">Proyectos</p>
+            <p class="text-xs lg:text-sm font-medium">+10 obras</p>
+          </div>
+          <div>
+            <p class="text-[9px] lg:text-[10px] uppercase tracking-widest text-accent-500 mb-1">Ubicación</p>
+            <p class="text-xs lg:text-sm font-medium">Potosí, BOL</p>
+          </div>
+        </div>
+
+        <blockquote class="italic text-[14px] lg:text-[16px] border-l-2 border-accent-500 pl-4 py-2 mt-8">
+          "Cada espacio que diseño parte de una pregunta simple: 
+          <span class="text-accent-500">¿Cómo quiere vivir esta persona?"</span>
+        </blockquote>
+        
+        <img src={WallLIcon.src} class="w-[200px] lg:w-[351.61px] h-auto absolute -right-5 bottom-[-40px] lg:bottom-auto z-20 opacity-30 lg:opacity-100 pointer-events-none" alt="" />
+      </div>
+    </div>
+
+    <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mt-12 relative justify-items-center">
+      
+      <div class="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
         <img src={WallWithDoorIcon.src} class="h-auto w-auto drop-shadow-2xl" alt="" />
       </div>
 
-      <div class="border border-white/10 p-12 flex flex-col items-center justify-center relative overflow-hidden w-[400px] h-[200px] shadow-[2px_2px_4px_0px_var(--primary-50)] shadow-[inset_1px_1px_1px_0px_#FFFFFF40]">
-        <span class="text-7xl font-light text-white mb-2">3+</span>
-        <span class="uppercase tracking-[0.3em] text-[10px] text-[#c19a5b]">Años de experiencia</span>
+      <div class="border border-white/10 p-8 lg:p-12 flex flex-col items-center justify-center relative overflow-hidden w-full lg:w-[400px] h-[160px] lg:h-[200px] shadow-[2px_2px_4px_0px_var(--primary-50)] shadow-[inset_1px_1px_1px_0px_#FFFFFF40]">
+        <span class="text-6xl lg:text-7xl font-light text-white mb-2">3+</span>
+        <span class="uppercase tracking-[0.2em] lg:tracking-[0.3em] text-[9px] lg:text-[10px] text-[#c19a5b] text-center">Años de experiencia</span>
       </div>
 
-      <div class="border border-white/10 p-12 flex flex-col items-center justify-center relative overflow-hidden w-[400px] h-[200px] shadow-[2px_2px_4px_0px_var(--primary-50)] shadow-[inset_1px_1px_1px_0px_#FFFFFF40]">
-        <span class="text-7xl font-light text-white mb-2">10+</span>
-        <span class="uppercase tracking-[0.3em] text-[10px] text-[#c19a5b]">Proyectos Realizados</span>
+      <div class="border border-white/10 p-8 lg:p-12 flex flex-col items-center justify-center relative overflow-hidden w-full lg:w-[400px] h-[160px] lg:h-[200px] shadow-[2px_2px_4px_0px_var(--primary-50)] shadow-[inset_1px_1px_1px_0px_#FFFFFF40]">
+        <span class="text-6xl lg:text-7xl font-light text-white mb-2">10+</span>
+        <span class="uppercase tracking-[0.2em] lg:tracking-[0.3em] text-[9px] lg:text-[10px] text-[#c19a5b] text-center">Proyectos Realizados</span>
       </div>
-    <img src={WallCornerIcon.src} class="absolute -bottom-17 right-0 z-20" alt="" />
+
+      <img src={WallCornerIcon.src} class="hidden md:block absolute -bottom-10 lg:-bottom-17 right-0 z-20 w-24 lg:w-auto opacity-50 lg:opacity-100" alt="" />
     </div>
   </div>
 </section>
