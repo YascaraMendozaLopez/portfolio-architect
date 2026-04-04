@@ -11,7 +11,7 @@ import { DoorIcon } from "../assets/icons/DoorIcon";
   pt-[8vh] pb-[clamp(2rem,7vw,6rem)]
   lg:pt-[2%] lg:pb-0
   relative
-  overflow-hidden lg:overflow-visible
+  overflow-x-hidden lg:overflow-visible
   min-h-screen lg:min-h-auto
   flex flex-col justify-between"
 >
@@ -34,7 +34,9 @@ import { DoorIcon } from "../assets/icons/DoorIcon";
     />
   </div>
 
-  <div class="relative z-20 w-full px-0 lg:px-[clamp(1.5rem,12vw,12rem)]">
+  <div
+    class="relative z-20 w-full px-0 lg:px-[clamp(1.5rem,12vw,12rem)] overflow-x-hidden"
+  >
     <div class="text-left max-w-[900px] px-[7%]">
       <p class="font-nunito font-bold text-accent-700 uppercase tracking-wide">
         Portafolio
@@ -50,7 +52,8 @@ import { DoorIcon } from "../assets/icons/DoorIcon";
 
     <div
       class="mt-[clamp(1.5rem,8vw,6rem)] md:mt-0
-      w-screen -mx-[calc(50vw-50%)]
+      w-[100vw] max-w-[100vw]
+      -mx-[calc(50vw-50%)]
       flex justify-start lg:justify-start"
     >
       <ProjectSlider client:load />
