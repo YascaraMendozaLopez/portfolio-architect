@@ -1,77 +1,60 @@
 ---
 import ProjectSlider from "./ProjectSlider";
-import { LineProjectLeft } from "../assets/icons/LineProjectLeft";
 import { LineProjectRight } from "../assets/icons/LineProjectRight";
-import { DoorIcon } from "../assets/icons/DoorIcon";
 ---
 
 <section
   id="projects"
   class="bg-primary
-  pt-[8vh] pb-[clamp(2rem,7vw,6rem)]
-  lg:pt-[2%] lg:pb-0
-  relative
-  overflow-x-hidden lg:overflow-visible
-  min-h-screen lg:min-h-auto
-  flex flex-col justify-between"
+pt-[5%]
+pb-0
+lg:pt-[3%]
+lg:pb-0
+relative
+overflow-x-hidden
+flex flex-col justify-between"
 >
-  <div class="absolute inset-0 pointer-events-none z-0 hidden lg:block">
-    <div class="absolute left-[9.7%] top-[59.8%] -translate-y-1/2">
-      <LineProjectLeft />
-    </div>
-
-    <div class="absolute right-[5%] bottom-[12%]">
+  <div
+    class="absolute inset-0 pointer-events-none z-0 hidden lg:block"
+  >
+    <div class="absolute right-[5%] bottom-[11%]">
       <LineProjectRight />
     </div>
-
-    <div class="absolute left-[5.7%] top-[20.7%]">
-      <DoorIcon />
-    </div>
-
     <img
       src="/images/project-image.svg"
-      class="absolute right-[5%] top-[10%] max-w-[220px] opacity-70"
+      class="absolute right-10 top-10 max-w-[220px] opacity-70 right-[5%]"
     />
   </div>
-
-  <div
-    class="relative z-20 w-full px-0 lg:px-[clamp(1.5rem,12vw,12rem)] overflow-x-hidden"
-  >
-    <div class="text-left max-w-[900px] px-[7%]">
+  <div class="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-16">
+    <div class="text-left max-w-[900px]">
       <p class="font-nunito font-bold text-accent-700 uppercase tracking-wide">
         Portafolio
       </p>
 
       <h2
-        class="font-urbanist text-[clamp(30px,8vw,42px)] lg:text-[clamp(28px,6vw,56px)] text-primary-500 mt-2 leading-tight"
+        class="font-urbanist text-[clamp(30px,6vw,56px)] text-primary-500 mt-2 leading-tight"
       >
         Proyectos
         <span class="italic font-bold text-accent-700"> destacados </span>
       </h2>
     </div>
-
-    <div
-      class="mt-[clamp(1.5rem,8vw,6rem)] md:mt-0
-      w-[100vw] max-w-[100vw]
-      -mx-[calc(50vw-50%)]
-      flex justify-start lg:justify-start"
-    >
+  </div>
+  <div class="relative w-full mt-[clamp(0.5rem,0.5vw,1rem)] overflow-hidden">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
       <ProjectSlider client:load />
     </div>
   </div>
-
   <div class="flex lg:hidden justify-center mt-[clamp(2rem,6vw,3rem)]">
     <img
       src="/images/project-image-center.svg"
-      class="w-[80%] max-w-[380px] scale-[1.1] mb-[-8%]"
+      class="w-[80%] max-w-[380px] scale-[1.05]"
       alt=""
     />
   </div>
-
   <div class="hidden lg:flex justify-center mt-[-5%] pointer-events-none">
     <img
       src="/images/project-image-center.svg"
-      class="max-w-[300px] lg:max-w-[550px] w-full mb-[-0.5%]"
+      class="max-w-[300px] lg:max-w-[550px] w-full"
       alt=""
     />
   </div>
