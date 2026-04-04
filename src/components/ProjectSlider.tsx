@@ -164,19 +164,23 @@ export default function ProjectSlider() {
         </div>
 
         <div className="flex justify-center items-center gap-8 md:gap-180 mt-[clamp(1.5rem,3vw,2.5rem)]">
-          <button
-            onClick={prev}
-            className="rotate-180 transition hover:scale-110 active:scale-95 p-2 md:p-0"
-          >
-            <ArrowCircleRight />
-          </button>
+          <div className="w-[60px] h-[60px] flex items-center justify-center">
+            <button
+              onClick={prev}
+              className="rotate-180 transition-all duration-300 transform-gpu hover:scale-105 active:scale-95"
+            >
+              <ArrowCircleRight />
+            </button>
+          </div>
 
-          <button
-            onClick={next}
-            className="transition hover:scale-110 active:scale-95 p-2 md:p-0"
-          >
-            <ArrowCircleRight />
-          </button>
+          <div className="w-[60px] h-[60px] flex items-center justify-center">
+            <button
+              onClick={next}
+              className="transition-all duration-300 transform-gpu hover:scale-105 active:scale-95"
+            >
+              <ArrowCircleRight />
+            </button>
+          </div>
         </div>
       </div>
 
