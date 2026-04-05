@@ -1,13 +1,13 @@
 import type { IconProps } from "../../types";
 
 export const RightArrowWithCircleIcon = ({
-  primaryColor = "#735a2a",
+  primaryColor = "var(--color-primary-50)",
+  size="size-6"
 }: IconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className={size}
       fill="none"
       viewBox="0 0 24 24"
     >

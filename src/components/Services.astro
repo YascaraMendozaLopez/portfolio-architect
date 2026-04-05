@@ -28,30 +28,29 @@ const services = [
 ];
 ---
 
-<section id="services" class="bg-[#F4EDE4] font-nunito min-h-[315px] md:min-h-[1100px] overflow-hidden">
+<section id="services" class="bg-secondary font-nunito min-h-[315px] md:min-h-[1100px] overflow-hidden">
   
-  <div class="bg-[#86A789] p-10 md:p-20 relative">
+  <div class="bg-primary-100 p-8 lg:p-20 relative">
 
-    <img src={ServicesLayoutImage.src} class="hidden md:block absolute w-[100%] h-[800px] scale-x-115 left-1/2 -translate-x-1/2 top-3/4" />
+    <img src={ServicesLayoutImage.src} class="hidden lg:block absolute w-[100%] h-[800px] scale-x-115 left-1/2 -translate-x-1/2 top-3/4 " />
 
     <img 
       src={StairsGraphicIcon.src} 
-      class="hidden md:block absolute right-10 bottom-5 opacity-25" 
+      class="absolute right-10 bottom-5 lg:opacity-25 opacity-10 h-[50%] lg:h-auto" 
     />
 
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-8 pr-0 lg:pr-18">
       <div class="space-y-2">
-        <h2 class="text-5xl md:text-6xl text-[#102A26] font-light leading-tight">
+        <h2 class="text-[clamp(2rem,4vw,5rem)] text-primary-900 font-light leading-tight font-urbanist text-center lg:text-left">
           ¿Listo para empezar<br/>
           tu <span class="font-bold italic">proyecto?</span>
         </h2>
-        <p class="text-[#102A26]/80 text-lg">Primera consulta sin costo · Potosí y proyectos nacionales</p>
+        <p class="text-primary-300 text-lg text-center">Primera consulta sin costo · Potosí y proyectos nacionales</p>
       </div>
       
       <button class="
-        flex items-center justify-center gap-[10px] 
-        w-[297px] h-[56px] font-nunito 
-        pt-[15px] pb-[16px] px-[32px] 
+        flex items-center justify-center gap-4 px-12 py-4
+        w-fit
         bg-[var(--primary-400,#163832)] 
         text-white font-bold
         rounded-[10px] 
@@ -60,7 +59,7 @@ const services = [
         transition-all hover:opacity-90
       ">
         Cuéntame tu proyecto
-        <RightArrowWithCircleIcon primaryColor={"#FFFFFF"} />
+        <RightArrowWithCircleIcon size="w-7 "/>
       </button>
     </div>
   </div>
@@ -68,9 +67,9 @@ const services = [
   <div class="max-w-7xl mx-auto px-6 py-20 relative">
     
     <div class="mb-16">
-      <span class="text-[#8B7355] font-bold text-sm uppercase tracking-widest">Lo que ofrezco</span>
-      <h3 class="text-5xl md:text-6xl text-[#102A26] mt-2">
-        Servicios de <span class="font-bold text-[#8B7355]">arquitectura</span>
+      <span class="text-accent-700 font-bold text-[clamp(1rem,1.2vw,1.3rem)] uppercase tracking-widest">Lo que ofrezco</span>
+      <h3 class="text-[clamp(2rem,3.5vw,4.8rem)] text-primary-800 mt-2 font-urbanist">
+        Servicios de <span class="font-bold text-accent-700 italic">arquitectura</span>
       </h3>
     </div>
 

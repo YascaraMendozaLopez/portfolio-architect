@@ -11,6 +11,7 @@ interface ButtonProps {
   action?: string;
   ariaLabel?: string;
   whatsappMessage?: string;
+  iconColor?: string;
 }
 
 const WHATSAPP_NUMBER = "59171587412";
@@ -22,6 +23,7 @@ export default function Button({
   type = "button",
   disabled = false,
   customClass = "",
+  iconColor="var(--color-accent-900)",
   id,
   action,
   ariaLabel = "",
@@ -29,7 +31,7 @@ export default function Button({
 }: ButtonProps) {
   const content = (
     <>
-      {Icon && <Icon size="size-6" primaryColor="var(--color-accent-900)"/>}
+      {Icon && <Icon size="size-6" primaryColor={iconColor}/>}
       {text && <span>{text}</span>}
     </>
   );
