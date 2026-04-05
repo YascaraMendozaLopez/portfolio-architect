@@ -9,12 +9,11 @@ export const DropdownIcon = () => {
     >
       <path
         stroke="#c9a96e"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
         d="m19.417.75-9.334 8-2.333-2m-7-6 3.11 2.667"
       />
     </svg>
   );
 };
-

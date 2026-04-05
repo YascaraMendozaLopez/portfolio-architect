@@ -63,7 +63,7 @@ export const LogoIcon = ({ size = "size-20" }: IconProps) => {
           colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             result="hardAlpha"
@@ -87,4 +87,3 @@ export const LogoIcon = ({ size = "size-20" }: IconProps) => {
     </svg>
   );
 };
-
