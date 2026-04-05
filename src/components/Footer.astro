@@ -9,7 +9,8 @@
     class="hidden md:block absolute right-[3%] top-[50%] -translate-y-1/2
     text-[clamp(140px,16vw,270px)]
     font-urbanist italic
-    text-accent-700/20
+    text-accent-700
+    opacity-10
     pointer-events-none select-none"
   >
     2026
@@ -23,9 +24,9 @@
     gap-10 md:gap-12"
   >
     <div
-      class="flex flex-col sm:flex-row
+      class="flex lg:flex-col flex-row
       items-center justify-center md:justify-start
-      gap-6 sm:gap-10
+      lg:gap-6 gap-10
       text-center sm:text-left"
     >
       <img
@@ -34,7 +35,7 @@
         class="w-[80px] sm:w-[90px] md:w-[100px]"
       />
 
-      <div class="font-urbanist text-accent-500 leading-tight">
+      <div class=" flex flex-row lg:flex-col gap-1 font-urbanist text-accent-500 leading-tight">
         <p
           class="text-[clamp(18px,2vw,30px)]
           font-semibold italic
@@ -53,15 +54,16 @@
       </div>
     </div>
     <div class="hidden md:block w-[1px] h-28 bg-accent-500"></div>
-    <div class="hidden md:flex flex-col
+    <div class="flex flex-col
       items-start gap-4 text-left">
       <nav
         class="flex flex-wrap
-  justify-start
-  gap-6 md:gap-14
-  text-accent-500
-  font-nunito
-  text-[clamp(12px,1.5vw,16px)]"
+        justify-center
+        lg:justify-start
+        gap-4 md:gap-14
+      text-accent-500
+        font-nunito
+        text-[clamp(12px,1.5vw,16px)]"
       >
         <a href="/" class="hover:text-primary-100 transition">Inicio</a>
         <a href="/#projects" class="hover:text-primary-100 transition"
@@ -83,8 +85,8 @@
 
       <p
         class="text-accent-700
-        text-[clamp(11px,1.2vw,13px)]
-        font-nunito italic"
+        text-[clamp(11px,1.2vw,13px)] w-full
+        font-nunito italic text-center mt-4 lg:mt-0"
       >
         © 2026 Arq. Jesús Mendoza - Arquitecto en la Ciudad de Potosí
       </p>

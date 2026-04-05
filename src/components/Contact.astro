@@ -4,9 +4,10 @@ import { TelephoneIcon } from '../assets/icons/TelephoneIcon';
 import { WhatsappIcon } from '../assets/icons/Whatsapp';
 import { EmailIcon } from '../assets/icons/EmailIcon';
 import CornerLeft from '../../public/images/CornerLeft.svg';
+import Button from '../ui/Button';
 ---
 
-<section id="contact" class="relative min-h-screen w-full bg-[#F5F0E8] overflow-hidden flex items-center justify-center p-6 md:p-12 lg:p-20">
+<section id="contact" class="relative min-h-screen w-full bg-secondary overflow-hidden flex items-center justify-center p-6 md:p-12 lg:p-20">
   
   <div class="absolute inset-0 pointer-events-none opacity-10 md:opacity-20" 
        style="background-image: linear-gradient(#8B7355 1px, transparent 1px), linear-gradient(90deg, #8B7355 1px, transparent 1px); background-size: calc(100% / 7) calc(100% / 5);">
@@ -18,20 +19,20 @@ import CornerLeft from '../../public/images/CornerLeft.svg';
     alt="Decoración"
   />
 
-  <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-start w-full max-w-7xl">
+  <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 items-start w-full max-w-7xl">
     
-    <div class="flex flex-col gap-10 md:gap-16">
+    <div class="flex flex-col gap-10 md:gap-16 pl-0 lg:pl-8">
       <div class="space-y-4">
-        <span class="text-[#8B7355] font-bold tracking-[0.2em] text-sm uppercase">Contacto</span>
-        <h2 class="text-[clamp(2.2rem,5vw,3.5rem)] font-light leading-[1.1] text-[#102A26]">
-          Comencemos tu <span class="font-bold italic text-[#8B7355]">proyecto</span>
+        <span class="text-accent-700 font-bold tracking-[0.2em] text-[clamp(1rem,1.2vw,1.3rem)] uppercase ">Contacto</span>
+        <h2 class="text-[clamp(2rem,3.5vw,4.8rem)] font-light leading-[1.1] text-primary-800 font-urbanist mt-4">
+          Comencemos tu <span class="font-bold italic text-accent-700">proyecto</span>
         </h2>
         <p class="text-primary-400 text-[clamp(1rem,2vw,1.25rem)] max-w-md leading-relaxed opacity-90">
           Primera reunión sin costo. Cuéntame tu idea y exploramos cómo puedo ayudarte.
         </p>
       </div>
 
-      <div class="space-y-8 md:space-y-10">
+      <div class="space-y-8 md:space-y-10 w-fit mx-auto">
         <div class="flex items-center gap-5 md:gap-6 group">
           <div class="text-[#8B7355] shrink-0">
             <TelephoneIcon />
@@ -58,15 +59,18 @@ import CornerLeft from '../../public/images/CornerLeft.svg';
           </div>
           <div class="flex flex-col">
             <span class="text-accent-700 font-bold text-[10px] md:text-xs uppercase tracking-wider">Correo Electrónico</span>
-            <span class="text-[#102A26] text-[clamp(1rem,3vw,1.5rem)] font-bold tracking-wide break-all">ejemplo@gmail.com</span>
+            <span class="text-[#102A26] text-[clamp(1rem,3vw,1.5rem)] font-bold tracking-wide break-all">mendozajesus@gmail.com</span>
           </div>
         </div>
       </div>
-
-      <a href="https://wa.me/59171587412" target="_blank" class="w-full sm:w-fit bg-[#102A26] text-[#F4EDE4] px-8 py-4 rounded-xl flex items-center justify-center gap-4 hover:bg-[#1a3d38] transition-all shadow-lg active:scale-95">
-        <WhatsappIcon size="size-6" primaryColor='white' />
-        <span class="font-bold text-lg">Escribir por WhatsApp</span>
-      </a>
+      <Button
+        customClass="flex items-center justify-center gap-4 bg-primary-400 rounded-2xl px-8 py-3 w-fit text-[clamp(1.1rem,1.2vw,1.3rem)] font-medium shadow text-primary-50 mx-auto"
+        text="Escribir por WhatsApp"
+        Icon={WhatsappIcon}
+        iconColor='var(--color-primary-50)'
+        whatsappMessage="Hola, tengo un proyecto en mente, necesto su ayuda"
+        ariaLabel="Solicitar apoyo por WhatsApp (abre en una nueva ventana)"
+      />
     </div>
 
     <div class="flex justify-center lg:justify-end w-full">

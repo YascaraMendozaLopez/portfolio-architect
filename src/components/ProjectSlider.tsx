@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ArrowCircleRight } from "../assets/icons/ArrowCircleRight";
 import ProjectModal from "./ProjectModal";
 
@@ -49,13 +49,26 @@ const projects: Project[] = [
 export default function ProjectSlider() {
   const [active, setActive] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [animating, setAnimating] = useState(false);
+  const [direction, setDirection] = useState<"left" | "right">("right");
+
+  const animate = (dir: "left" | "right", cb: () => void) => {
+    setDirection(dir);
+    setAnimating(true);
+    setTimeout(() => {
+      cb();
+      setAnimating(false);
+    }, 300);
+  };
 
   const next = () => {
-    setActive((prev) => (prev + 1) % projects.length);
+    animate("right", () => setActive((prev) => (prev + 1) % projects.length));
   };
 
   const prev = () => {
-    setActive((prev) => (prev - 1 + projects.length) % projects.length);
+    animate("left", () =>
+      setActive((prev) => (prev - 1 + projects.length) % projects.length)
+    );
   };
 
   const getVisible = () => {
@@ -71,14 +84,34 @@ export default function ProjectSlider() {
 
   const nextModal = () => {
     setSelectedIndex((prev) =>
-      prev !== null ? (prev + 1) % projects.length : null,
+      prev !== null ? (prev + 1) % projects.length : null
     );
   };
 
   const prevModal = () => {
     setSelectedIndex((prev) =>
-      prev !== null ? (prev - 1 + projects.length) % projects.length : null,
+      prev !== null ? (prev - 1 + projects.length) % projects.length : null
     );
+  };
+
+  const getAnimClass = (index: number) => {
+    if (!animating) return "opacity-100 translate-x-0 scale-100";
+    if (index === 1) {
+      return direction === "right"
+        ? "opacity-0 translate-x-8 scale-95"
+        : "opacity-0 -translate-x-8 scale-95";
+    }
+    if (index === 0) {
+      return direction === "right"
+        ? "opacity-60 -translate-x-4"
+        : "opacity-60 translate-x-4";
+    }
+    if (index === 2) {
+      return direction === "right"
+        ? "opacity-60 translate-x-4"
+        : "opacity-60 -translate-x-4";
+    }
+    return "";
   };
 
   return (
@@ -87,15 +120,14 @@ export default function ProjectSlider() {
         <div className="flex items-center justify-between md:justify-center gap-0 md:gap-[clamp(1rem,3vw,2rem)] w-full overflow-visible px-0">
           {visible.map((project, index) => {
             const isCenter = index === 1;
-
             const realIndex =
               (active - 1 + index + projects.length) % projects.length;
 
             return (
               <div
-                key={project.id}
+                key={`${project.id}-${active}`}
                 onClick={() => setSelectedIndex(realIndex)}
-                className="relative flex justify-center items-center transition-all duration-500"
+                className={`relative flex justify-center items-center transition-all duration-300 ${getAnimClass(index)}`}
               >
                 {!isCenter && (
                   <div className="block md:hidden w-[100%] max-w-[50px] aspect-[1/7] opacity-80 scale-90">
@@ -113,7 +145,7 @@ export default function ProjectSlider() {
                     relative
                     ${
                       isCenter
-                        ? "w-[100%] max-w-[300px] aspect-[3/4] md:w-[clamp(260px,22vw,320px)] md:h-[clamp(380px,30vw,380px)] shadow-[8px_16px_16px_rgba(0,0,0,0.5)] z-10"
+                        ? "w-[95%] h-[25rem] max-w-[280px] aspect-[3/4] md:w-[clamp(260px,22vw,320px)] md:h-[clamp(380px,30vw,380px)] shadow-[8px_16px_16px_rgba(0,0,0,0.5)] z-10"
                         : "hidden md:block w-[clamp(220px,18vw,300px)] h-[clamp(20px,18vw,280px)] opacity-80"
                     }
                   `}
@@ -141,16 +173,13 @@ export default function ProjectSlider() {
                   {isCenter && (
                     <>
                       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0)_0%,rgba(11,43,38,0.85)_85%)]" />
-
                       <div className="absolute bottom-4 left-4 text-white">
                         <p className="text-[clamp(11px,1vw,13px)] text-accent-500 italic">
                           {project.category} — {project.year}
                         </p>
-
                         <h3 className="text-[clamp(16px,1.5vw,20px)] font-nunito">
                           {project.title}
                         </h3>
-
                         <p className="text-[clamp(11px,1vw,13px)] italic">
                           {project.location} {project.area}
                         </p>
@@ -163,7 +192,7 @@ export default function ProjectSlider() {
           })}
         </div>
 
-        <div className="flex justify-center items-center gap-8 md:gap-180 mt-[clamp(1.5rem,3vw,2.5rem)]">
+        <div className="flex w-full justify-center lg:justify-around items-center gap-8 mt-[clamp(1.5rem,3vw,2.5rem)]">
           <div className="w-[60px] h-[60px] flex items-center justify-center">
             <button
               onClick={prev}
@@ -172,7 +201,6 @@ export default function ProjectSlider() {
               <ArrowCircleRight />
             </button>
           </div>
-
           <div className="w-[60px] h-[60px] flex items-center justify-center">
             <button
               onClick={next}
