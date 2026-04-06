@@ -1,9 +1,14 @@
+import { useState } from "react";
 import { DropdownIcon } from "../assets/icons/DropdownIcon";
 import { RightArrowWithCircleIcon } from "../assets/icons/RightArrowWithCircleIcon";
 import Button from "../ui/Button";
 import emailjs from "@emailjs/browser";
+import { success } from "astro:schema";
+import { EmailSuccessIcon } from "../assets/icons/EmailSuccess";
+import { EmailErrorIcon } from "../assets/icons/EmailError";
 
 export const ContactForm = () => {
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
@@ -16,11 +21,11 @@ export const ContactForm = () => {
       import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY
     )
     .then(() => {
-      alert("Mensaje enviado");
+      setStatus("success");
       form.reset();
     })
     .catch(() => {
-      alert("Error al enviar");
+      setStatus("error");
     });
   };
   return (
@@ -149,6 +154,34 @@ export const ContactForm = () => {
         iconColor='var(--color-accent-800)'
         type="submit"
       />
+      {status !== "idle" && (
+        <div className="fixed inset-0 z-9999 flex items-center justify-center bg-primary-900 backdrop-blur-2xl">
+          
+          <div className="bg-primary-500 border border-accent-500/30 rounded-2xl py-8 px-4 lg:px-16 w-fit mx-4 text-center shadow-2xl">
+            <div className="w-fit mx-auto my-4">
+              {status === "success" ? <EmailSuccessIcon/> : <EmailErrorIcon/> }
+            </div>
+            <h3 className="text-xl font-semibold text-primary-50 mb-2">
+              {status === "success" ? "Mensaje enviado" : "Error al enviar"}
+            </h3>
+
+            <p className="text-primary-100/70 text-sm mb-6">
+              {status === "success"
+                ? "Te responderé lo antes posible."
+                : "Intenta nuevamente en unos segundos."}
+            </p>
+
+            <button
+              onClick={() => setStatus("idle")}
+              className="bg-accent-500 text-accent-900 px-6 py-2 rounded-lg font-medium hover:bg-primary-50 hover:shadow-[2px_4px_2px_rgb(0,0,0,0.5)] transition-all duration-300  text-center hover:scale-105 cursor-pointer"
+            >
+              Cerrar
+            </button>
+
+          </div>
+        </div>
+      )}
     </form>
+    
   );
 };
