@@ -3,6 +3,7 @@ import type { ElementType } from "react";
 interface ButtonProps {
   text?: string;
   Icon?: ElementType;
+  IconRight?: ElementType;
   onClick?: () => void;
   type?: "button" | "submit";
   disabled?: boolean;
@@ -19,6 +20,7 @@ const WHATSAPP_NUMBER = "59171587412";
 export default function Button({
   text,
   Icon,
+  IconRight,
   onClick,
   type = "button",
   disabled = false,
@@ -33,6 +35,7 @@ export default function Button({
     <>
       {Icon && <Icon size="size-6" primaryColor={iconColor}/>}
       {text && <span>{text}</span>}
+      {IconRight && <IconRight size="size-6" primaryColor={iconColor}/>}
     </>
   );
 

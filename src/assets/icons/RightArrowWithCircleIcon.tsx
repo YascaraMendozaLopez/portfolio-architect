@@ -1,7 +1,7 @@
 import type { IconProps } from "../../types";
 
 export const RightArrowWithCircleIcon = ({
-  primaryColor = "var(--color-primary-50)",
+  primaryColor = "var(--color-accent-800)",
   size="size-6"
 }: IconProps) => {
   return (

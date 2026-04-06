@@ -8,13 +8,13 @@ import LogoTransparent from '../../public/images/LogoTransparent.svg';
 ---
 
 <section id="about" class="relative min-h-screen w-full bg-linear-to-b from-primary-400 to-primary-900 text-white flex items-center justify-center font-nunito overflow-hidden py-12 md:py-20 gap-16 px-8 md:px-20">
-  <div class="absolute inset-0 opacity-8   pointer-events-none w-full lg:w-1/2 h-[35%] md:h-[55%] lg:h-[65%]
+  <div class="absolute inset-0 opacity-8   pointer-events-none w-full lg:w-1/2 h-[30%] md:h-[55%] lg:h-[62%]
               bg-[linear-gradient(to_right,var(--color-primary-100)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-primary-100)_1px,transparent_1px)] 
               bg-[size:calc(100%/7-0.1px)_calc(100%/9-0.1px)]">
   </div>
-  <div class=" max-w-[75rem] w-full px-6 md:px-0 grid grid-cols-1 lg:grid-cols-2  gap-8">
+  <div class=" max-w-[75rem] w-full px-6 md:px-0 grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-8">
     
-    <div class="relative pt-6 px-3 w-full h-auto flex flex-col justify-end items-center lg:items-start">
+    <div class="relative pt-6 px-3 w-full flex flex-col justify-end items-center lg:items-start">
       
       <div class="relative text-center lg:text-left z-20">
         <span class="text-accent-500 uppercase tracking-[0.2em] font-nunito">Arquitecto</span>
@@ -23,18 +23,18 @@ import LogoTransparent from '../../public/images/LogoTransparent.svg';
         </h2>
       </div>
 
-      <div class="relative mt-12 lg:mt-8 flex justify-center lg:justify-start w-fit pb-6">
+      <div class="relative mt-8 lg:mt-4 flex justify-center lg:justify-start w-fit  pb-0 lg:pb-6">
         <div class="absolute inset-0 z-0 pointer-events-none flex items-end justify-end">
           <div> 
             <img src={LogoTransparent.src} class="w-full h-auto  mb-[15%] opacity-40 lg:opacity-100" />
           </div>
         </div>
 
-        <div class="relative z-10 grayscale overflow-hidden w-[260px] md:w-full">
+        <div class="relative z-10 grayscale overflow-hidden w-[23rem] lg:w-full">
           <img 
             src={ProfilePhotoIcon.src} 
             alt="Profile Photo"
-            class="md:translate-x-12 scale-105 [mask-image:radial-gradient(circle,black_50%,transparent_70%)]"
+            class=" pl-0 lg:pl-5 scale-3d [mask-image:linear-gradient(to_bottom,black_70%,transparent_90%)]"
           />
         </div>
 
@@ -49,12 +49,11 @@ import LogoTransparent from '../../public/images/LogoTransparent.svg';
 
     <div class="w-full lg:w-[80%] lg:ml-auto flex flex-col justify-center space-y-8 lg:space-y-12 relative z-10 mt-10">
       <div class="space-y-6 relative">
-        <p class="font-nunito text-gray-300 leading-relaxed text-base lg:text-lg text-justify lg:text-left max-w-fit lg:max-w-lg">
-          Arquitecto en Potosí egresado de la U.A.T.F. con más de 3 años de experiencia en diseño arquitectónico. 
-          He desarrollado más de 10 proyectos, principalmente viviendas y espacios personalizados.
+        <p class="font-nunito text-gray-300 leading-relaxed text-base lg:text-lg text-justify max-w-fit lg:max-w-md">
+          Arquitecto en Potosí egresado de la U.A.T.F. con más de 3 años de experiencia en diseño arquitectónico. He desarrollado más de 10 proyectos, principalmente viviendas y espacios personalizados, ofreciendo soluciones modernas, funcionales y adaptadas a cada cliente. Trabajo en el diseño de casas, remodelaciones y asesoramiento arquitectónico en la ciudad de Potosí.
         </p>
 
-        <div class="border-t border-accent-500 pt-6 grid grid-cols-3 gap-2 md:gap-4 text-center lg:text-left">
+        <div class="border-t border-accent-500 pt-6 grid grid-cols-3 gap-2 md:gap-4 text-center ">
           <div>
             <p class="text-[9px] lg:text-[10px] uppercase tracking-widest text-accent-500 mb-1">Formación</p>
             <p class="text-xs lg:text-sm font-medium">U.A.T.F.</p>
@@ -78,18 +77,18 @@ import LogoTransparent from '../../public/images/LogoTransparent.svg';
       </div>
     </div>
 
-    <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mt-12 relative justify-items-center">
+    <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-20 lg:my-12 relative justify-items-center">
       
       <div class="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
         <img src={WallWithDoorIcon.src} class="h-auto w-auto drop-shadow-2xl" alt="" />
       </div>
 
-      <div class="border border-white/10 p-8 lg:p-12 flex flex-col items-center justify-center relative overflow-hidden w-full lg:w-[400px] h-[160px] lg:h-[200px] shadow-[2px_2px_4px_0px_var(--primary-50)] shadow-[inset_1px_1px_1px_0px_#FFFFFF40]">
+      <div class="border border-white/10 p-8 lg:p-10 flex flex-col items-center justify-center relative overflow-hidden w-full lg:w-[400px] h-[160px] lg:h-[200px] shadow-[2px_2px_4px_0px_var(--primary-50)] shadow-[inset_1px_1px_1px_0px_#FFFFFF40]">
         <span class="text-6xl lg:text-7xl font-light text-white mb-2">3+</span>
         <span class="uppercase tracking-[0.2em] lg:tracking-[0.3em] text-[9px] lg:text-[10px] text-[#c19a5b] text-center">Años de experiencia</span>
       </div>
 
-      <div class="border border-white/10 p-8 lg:p-12 flex flex-col items-center justify-center relative overflow-hidden w-full lg:w-[400px] h-[160px] lg:h-[200px] shadow-[2px_2px_4px_0px_var(--primary-50)] shadow-[inset_1px_1px_1px_0px_#FFFFFF40]">
+      <div class="border border-white/10 p-8 lg:p-10 flex flex-col items-center justify-center relative overflow-hidden w-full lg:w-[400px] h-[160px] lg:h-[200px] shadow-[2px_2px_4px_0px_var(--primary-50)] shadow-[inset_1px_1px_1px_0px_#FFFFFF40]">
         <span class="text-6xl lg:text-7xl font-light text-white mb-2">10+</span>
         <span class="uppercase tracking-[0.2em] lg:tracking-[0.3em] text-[9px] lg:text-[10px] text-[#c19a5b] text-center">Proyectos Realizados</span>
       </div>
