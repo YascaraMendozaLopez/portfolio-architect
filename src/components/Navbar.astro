@@ -1,5 +1,6 @@
 ---
 import { LogoIcon } from "../assets/icons/LogoIcon.tsx";
+import Button from "../ui/Button";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -38,14 +39,12 @@ const navLinks = [
           {link.label}
         </a>
       ))}
-      
-      <a 
-        href="#contact"
-        data-nav-link
-        class="flex text-center items-center justify-center lg:max-w-[8rem] lg:w-[7rem] xl:max-w-fit xl:w-fit border border-accent-500 rounded-[5px] py-2 px-4 transition-all hover:bg-accent-500 hover:text-primary-900"
-      >
-        Consulta Gratuita
-      </a>
+      <Button
+        customClass="flex text-center items-center justify-center lg:max-w-[8rem] lg:w-[7rem] xl:max-w-fit xl:w-fit border border-accent-500 rounded-[5px] py-2 px-4 transition-all hover:bg-accent-500 hover:text-primary-900"
+        text="Consulta gratuita"
+        whatsappMessage="Hola, tengo un proyecto en mente en el que quisiera que me guíe"
+        ariaLabel="Solicitar consulta en whatsapp (abre en una nueva ventana)"
+      />
     </div>
   </div>
 </nav>
