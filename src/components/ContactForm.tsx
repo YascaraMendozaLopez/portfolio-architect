@@ -54,11 +54,10 @@ export const ContactForm = () => {
           Ciudad/Provincia
         </label>
         <div className="relative">
-          <select name="location" className="bg-accent-500/5 border border-primary-300 p-3 rounded-md text-primary-50 w-full appearance-none focus:border-accent-500 outline-none cursor-pointer relative z-10">
+          <select name="location" defaultValue="" className="bg-accent-500/5 border border-primary-300 p-3 rounded-md text-primary-50 w-full appearance-none focus:border-accent-500 outline-none cursor-pointer relative z-10">
             <option
               value=""
               disabled
-              selected
               className="bg-primary-500 text-accent-500 "
             >
               Elige tu ubicación
@@ -102,11 +101,10 @@ export const ContactForm = () => {
           Servicio de Interés
         </label>
         <div className="relative">
-          <select name="service" className="bg-accent-500/5 border border-primary-300 p-3 rounded-md text-primary-50 w-full appearance-none focus:border-accent-500 outline-none cursor-pointer relative z-10">
+          <select name="service" defaultValue="" className="bg-accent-500/5 border border-primary-300 p-3 rounded-md text-primary-50 w-full appearance-none focus:border-accent-500 outline-none cursor-pointer relative z-10">
             <option
               value=""
               disabled
-              selected
               className="bg-primary-500 text-primary-50"
             >
               ¿Qué necesitas?
