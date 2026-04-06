@@ -1,16 +1,37 @@
 import { DropdownIcon } from "../assets/icons/DropdownIcon";
 import { RightArrowWithCircleIcon } from "../assets/icons/RightArrowWithCircleIcon";
 import Button from "../ui/Button";
+import emailjs from "@emailjs/browser";
 
 export const ContactForm = () => {
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+
+    emailjs.sendForm(
+      import.meta.env.PUBLIC_EMAILJS_SERVICE_ID,
+      import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID,
+      form,
+      import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY
+    )
+    .then(() => {
+      alert("Mensaje enviado");
+      form.reset();
+    })
+    .catch(() => {
+      alert("Error al enviar");
+    });
+  };
   return (
-    <form className="bg-primary-500 p-6 md:p-8 rounded-xl shadow-xl flex flex-col gap-5 w-full max-w-[500px] ">
+    <form onSubmit={handleSubmit} className="bg-primary-500 p-6 md:p-8 rounded-xl shadow-xl flex flex-col gap-5 w-full max-w-[500px] ">
       <div className="flex flex-col gap-2">
         <label className="text-accent-500 text-[10px] md:text-xs font-bold uppercase tracking-widest">
           Nombre Completo
         </label>
         <input
           type="text"
+          name="name"
           placeholder="Tu nombre"
           className="bg-accent-500/5 border border-primary-300 p-3 rounded-md text-white focus:border-accent-500 outline-none transition-all placeholder:text-accent-500/50"
         />
@@ -22,6 +43,7 @@ export const ContactForm = () => {
         </label>
         <input
           type="email"
+          name="email"
           placeholder="ejemplo@gmail.com"
           className="bg-accent-500/5 border border-primary-300 p-3 rounded-md text-white focus:border-accent-500 outline-none transition-all placeholder:text-accent-500/50"
         />
@@ -32,7 +54,7 @@ export const ContactForm = () => {
           Ciudad/Provincia
         </label>
         <div className="relative">
-          <select className="bg-accent-500/5 border border-primary-300 p-3 rounded-md text-primary-50 w-full appearance-none focus:border-accent-500 outline-none cursor-pointer relative z-10">
+          <select name="location" className="bg-accent-500/5 border border-primary-300 p-3 rounded-md text-primary-50 w-full appearance-none focus:border-accent-500 outline-none cursor-pointer relative z-10">
             <option
               value=""
               disabled
@@ -41,31 +63,31 @@ export const ContactForm = () => {
             >
               Elige tu ubicación
             </option>
-            <option value="lp" className="bg-primary-500 text-primary-50">
+            <option value="La Paz" className="bg-primary-500 text-primary-50">
               La Paz
             </option>
-            <option value="sc" className="bg-primary-500 text-primary-50">
+            <option value="Santa Cruz" className="bg-primary-500 text-primary-50">
               Santa Cruz
             </option>
-            <option value="pt" className="bg-primary-500 text-primary-50">
+            <option value="Potosí" className="bg-primary-500 text-primary-50">
               Potosí
             </option>
-            <option value="cb" className="bg-primary-500 text-primary-50">
+            <option value="Cochabamba" className="bg-primary-500 text-primary-50">
               Cochabamba
             </option>
-            <option value="or" className="bg-primary-500 text-primary-50">
+            <option value="Oruro" className="bg-primary-500 text-primary-50">
               Oruro
             </option>
-            <option value="tj" className="bg-primary-500 text-primary-50">
+            <option value="Tarija" className="bg-primary-500 text-primary-50">
               Tarija
             </option>
-            <option value="be" className="bg-primary-500 text-primary-50">
+            <option value="Beni" className="bg-primary-500 text-primary-50">
               Beni
             </option>
-            <option value="pa" className="bg-primary-500 text-primary-50">
+            <option value="Pando" className="bg-primary-500 text-primary-50">
               Pando
             </option>
-            <option value="ch" className="bg-primary-500 text-primary-50">
+            <option value="Chuquisaca" className="bg-primary-500 text-primary-50">
               Chuquisaca
             </option>
           </select>
@@ -80,28 +102,28 @@ export const ContactForm = () => {
           Servicio de Interés
         </label>
         <div className="relative">
-          <select className="bg-accent-500/5 border border-primary-300 p-3 rounded-md text-primary-50 w-full appearance-none focus:border-accent-500 outline-none cursor-pointer relative z-10">
+          <select name="service" className="bg-accent-500/5 border border-primary-300 p-3 rounded-md text-primary-50 w-full appearance-none focus:border-accent-500 outline-none cursor-pointer relative z-10">
             <option
               value=""
               disabled
               selected
-              className="bg-[#163832] text-white"
+              className="bg-primary-500 text-primary-50"
             >
               ¿Qué necesitas?
             </option>
-            <option value="planos" className="bg-[#163832] text-white">
+            <option value="planos" className="bg-primary-500 text-primary-50">
               Diseño de Planos
             </option>
-            <option value="relevamiento" className="bg-[#163832] text-white">
+            <option value="relevamiento" className="bg-primary-500 text-primary-50">
               Plano de Relevamiento
             </option>
-            <option value="lote" className="bg-[#163832] text-white">
+            <option value="lote" className="bg-primary-500 text-primary-50">
               Plano de Lote
             </option>
-            <option value="avaluo" className="bg-[#163832] text-white">
+            <option value="avaluo" className="bg-primary-500 text-primary-50">
               Avalúo de Propiedades
             </option>
-            <option value="otros" className="bg-[#163832] text-white">
+            <option value="otros" className="bg-primary-500 text-primary-50">
               Otros Proyectos
             </option>
           </select>
@@ -118,7 +140,8 @@ export const ContactForm = () => {
         <textarea
           placeholder="Describe brevemente lo que tienes en mente"
           rows={3}
-          className="bg-accent-500/5 border border-primary-300 p-3 rounded-md text-priamry-50 focus:border-accent-500 outline-none resize-none transition-all placeholder:text-accent-500/50 text-sm"
+          name="message"
+          className="bg-accent-500/5 border border-primary-300 p-3 rounded-md text-primary-50 focus:border-accent-500 outline-none resize-none transition-all placeholder:text-accent-500/50 text-sm"
         />
       </div>
       <Button
@@ -126,6 +149,7 @@ export const ContactForm = () => {
         text="Enviar mensaje"
         IconRight={RightArrowWithCircleIcon}
         iconColor='var(--color-accent-800)'
+        type="submit"
       />
     </form>
   );
