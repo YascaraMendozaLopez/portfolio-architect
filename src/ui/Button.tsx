@@ -15,7 +15,7 @@ interface ButtonProps {
   iconColor?: string;
 }
 
-const WHATSAPP_NUMBER = "59171587412";
+const WHATSAPP_NUMBER = "59176176485";
 
 export default function Button({
   text,
