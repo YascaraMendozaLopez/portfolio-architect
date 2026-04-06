@@ -117,7 +117,7 @@ export default function ProjectSlider() {
   return (
     <>
       <div className="relative flex flex-col items-center justify-center w-full">
-        <div className="flex items-center justify-between md:justify-center gap-0 md:gap-[clamp(1rem,3vw,2rem)] w-full overflow-visible px-0">
+        <div className="flex items-center justify-between sm:justify-center gap-4 lg:gap-[clamp(1rem,3vw,2rem)] w-full overflow-visible px-0">
           {visible.map((project, index) => {
             const isCenter = index === 1;
             const realIndex =
@@ -193,10 +193,10 @@ export default function ProjectSlider() {
         </div>
 
         <div className="flex w-full justify-center lg:justify-around items-center gap-8 mt-[clamp(1.5rem,3vw,2.5rem)]">
-          <div className="w-[60px] h-[60px] flex items-center justify-center">
+          <div className="w-[60px] h-[60px] flex items-center justify-center overflow-visible mb-1">
             <button
               onClick={prev}
-              className="rotate-180 transition-all duration-300 transform-gpu hover:scale-105 active:scale-95"
+              className="cursor-pointer rotate-180 transition-all duration-300 transform-gpu hover:scale-105 active:scale-95"
             >
               <ArrowCircleRight />
             </button>
@@ -204,7 +204,7 @@ export default function ProjectSlider() {
           <div className="w-[60px] h-[60px] flex items-center justify-center">
             <button
               onClick={next}
-              className="transition-all duration-300 transform-gpu hover:scale-105 active:scale-95"
+              className="cursor-pointer transition-all duration-300 transform-gpu hover:scale-105 active:scale-95"
             >
               <ArrowCircleRight />
             </button>
