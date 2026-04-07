@@ -97,16 +97,16 @@ export default function ReviewsSlider({ reviews }: ReviewProps) {
       <div className="justify-end gap-4 mt-6 flex">
         <div
           onClick={() => handleScroll(-1)}
-          className="group cursor-pointer p-2 rounded-full bg-transparent hover:bg-primary-900/60 transition-all duration-300"
+          className="group cursor-pointer rotate-180 p-2 rounded-full bg-transparent hover:bg-primary-900/60 transition-all duration-300"
         >
-          <ArrowUpDownIcon className="size-12 rotate-180 group-hover:scale-110 transition-all" />
+          <ArrowUpDownIcon className="size-12  transform transition-all duration-300 ease-in-out group-hover:scale-110" />
         </div>
 
         <div
           onClick={() => handleScroll(1)}
           className="group cursor-pointer p-2 rounded-full bg-transparent hover:bg-primary-900/60 transition-all duration-300"
         >
-          <ArrowUpDownIcon className="size-12 group-hover:scale-110 transition-all" />
+          <ArrowUpDownIcon className="size-12 transform transition-all duration-300 ease-in-out group-hover:scale-110" />
         </div>
       </div>
     </div>
