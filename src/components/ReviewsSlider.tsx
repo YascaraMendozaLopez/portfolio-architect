@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { QuoteMarksIcon } from "../assets/icons/QuoteMarks";
 import { ArrowUpDownIcon } from "../assets/icons/ArrowUpDown";
 
@@ -14,13 +14,38 @@ type ReviewProps = {
 
 export default function ReviewsSlider({ reviews }: ReviewProps) {
   const [index, setIndex] = useState<number>(0);
+  const [visibleCards, setVisibleCards] = useState<number>(3);
+  const [cardHeight, setCardHeight] = useState<number>(0);
 
-  const visibleCards = 3;
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const updateCards = () => {
+      if (window.innerWidth < 768) {
+        setVisibleCards(2);
+      } else {
+        setVisibleCards(3);
+      }
+    };
+
+    updateCards();
+    window.addEventListener("resize", updateCards);
+
+    return () => window.removeEventListener("resize", updateCards);
+  }, []);
+
+  useEffect(() => {
+    if (cardRef.current) {
+      const height = cardRef.current.offsetHeight;
+      const gap = 56;
+      setCardHeight(height + gap);
+    }
+  }, [reviews]);
 
   const handleScroll = (direction: number) => {
     setIndex((prev) => {
       let next = prev + direction;
-      const maxIndex = reviews.length - visibleCards;
+      const maxIndex = Math.max(0, reviews.length - visibleCards);
 
       if (next < 0) next = 0;
       if (next > maxIndex) next = maxIndex;
@@ -31,21 +56,20 @@ export default function ReviewsSlider({ reviews }: ReviewProps) {
 
   return (
     <div className="relative w-full">
-
       <div className="h-[30rem] overflow-hidden relative">
-
         <div
           className="flex flex-col gap-14 transition-transform duration-500 ease-out will-change-transform"
           style={{
-            transform: `translateY(-${index * 164}px)`
+            transform: `translateY(-${index * cardHeight}px)`
           }}
         >
-          {reviews.map((review, index) => {
-            const isRight = index % 2 !== 0;
+          {reviews.map((review, i) => {
+            const isRight = i % 2 !== 0;
 
             return (
               <div
-                key={index}
+                key={i}
+                ref={i === 0 ? cardRef : null}
                 className={`
                   border border-accent-500 p-6 bg-accent-500/10 
                   flex gap-4 relative mx-6
@@ -71,21 +95,19 @@ export default function ReviewsSlider({ reviews }: ReviewProps) {
       </div>
 
       <div className="justify-end gap-4 mt-6 flex">
-
         <div
           onClick={() => handleScroll(-1)}
-          className="group cursor-pointer p-2 rounded-full bg-transparent hover:bg-primary-900/60 transition-all duration-300 ease-in-out"
+          className="group cursor-pointer p-2 rounded-full bg-transparent hover:bg-primary-900/60 transition-all duration-300"
         >
-          <ArrowUpDownIcon size="size-12 rotate-180 transform transition-all duration-300 ease-in-out group-hover:scale-110 " />
+          <ArrowUpDownIcon className="size-12 rotate-180 group-hover:scale-110 transition-all" />
         </div>
 
         <div
           onClick={() => handleScroll(1)}
-          className="group cursor-pointer p-2 rounded-full bg-transparent hover:bg-primary-900/60 transition-all duration-300 ease-in-out"
+          className="group cursor-pointer p-2 rounded-full bg-transparent hover:bg-primary-900/60 transition-all duration-300"
         >
-          <ArrowUpDownIcon size="size-12 transform transition-all duration-300 ease-in-out group-hover:scale-110" />
+          <ArrowUpDownIcon className="size-12 group-hover:scale-110 transition-all" />
         </div>
-
       </div>
     </div>
   );
